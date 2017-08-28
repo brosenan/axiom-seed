@@ -7,8 +7,7 @@
 ;; See http://axiom-clj.org/permacode.html for more information.
 (perm/pure
 
- ;; Uncomment the following code to make the tests pass.
- ;; It is written in the Cloudlog DSL.
+ ;; This code is written in the Cloudlog DSL.
  ;; See http://axiom-clj.org/cloudlog.html for more information.
 
  ;; Rules work at update time.
