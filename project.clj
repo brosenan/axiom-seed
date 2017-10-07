@@ -8,17 +8,18 @@
                  [lein-doo "0.1.7"]
                  [devcards "0.2.3"]
                  [reagent "0.6.0"]
-                 [axiom-clj/axiom-cljs "0.3.0"]]
+                 [axiom-clj/axiom-cljs "0.4.0"]]
   :plugins [[lein-cljsbuild "1.1.4" :exclusions [[org.clojure/clojure]]]
             [lein-figwheel "0.5.6"]
             [lein-doo "0.1.7"]
             [lein-midje "3.1.3"]
-            [axiom-clj/lein-axiom "0.3.0"]]
+            [axiom-clj/lein-axiom "0.4.0"]]
   :clean-targets ^{:protect false} [:target-path "out" "resources/public/cljs"]
 
   :profiles {:uberjar {:aot :all}
              :dev {:dependencies [[midje "1.8.3"]
-                                  [axiom-clj/cloudlog-events "0.3.0"]]}}
+                                  [axiom-clj/cloudlog-events "0.4.0"]
+                                  [brosenan/reagent-query "0.1.1"]]}}
 
   :cljsbuild {
               :test-commands {"test" ["lein" "doo" "phantom" "test" "once"]}
