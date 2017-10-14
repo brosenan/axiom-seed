@@ -57,7 +57,7 @@
     [:ul
      (for [{:keys [author task ts]} tasks]
        [:li {:key ts}
-        author ": " task])]))
+        (str author ": " task)])]))
 
 ;; 'host' is the object connecting this app to the host.
 (def host (ax/default-connection r/atom))

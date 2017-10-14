@@ -33,3 +33,19 @@
         (is (= (rq/query ui :div :ul :li:key) [0]))
         ;; and an empty :value in the :input box
         (is (= (rq/query ui :div :ul :li :div :input:value) [""]))))))
+
+(deftest my-task-list
+  (let [host (ax/mock-connection "alice")
+        mock-tasks (ax/query-mock host :my-app/my-tasks)
+        ui (app/my-task-list host)]
+    ;; Before getting any results for the query, we are going to receive an empty list.
+    (is (= (rq/query ui :ul :il) []))
+    ;; Now let's simulate some results coming from the server
+    (mock-tasks ["alice"] ["bob" "Please help me" 1000])
+    (mock-tasks ["alice"] ["alice" "Help bob" 2000])
+    ;; And now when we re-render the list, both results should appear
+    (let [ui (app/my-task-list host)]
+      ;; The  :key attribute of each :li element is the timestamp
+      (is (= (rq/query ui :ul :li:key) [1000 2000]))
+      ;; The text is <author>: <task>
+      (is (= (rq/query ui :ul :li) ["bob: Please help me" "alice: Help bob"])))))

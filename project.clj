@@ -8,7 +8,7 @@
                  [lein-doo "0.1.7"]
                  [devcards "0.2.3"]
                  [reagent "0.6.0"]
-                 [axiom-clj/axiom-cljs "0.4.0"]]
+                 [axiom-clj/axiom-cljs "0.4.1"]]
   :plugins [[lein-cljsbuild "1.1.4" :exclusions [[org.clojure/clojure]]]
             [lein-figwheel "0.5.6"]
             [lein-doo "0.1.7"]
